@@ -1,0 +1,27 @@
+<header >
+    <div class="row">
+  <nav class="navbar navbar-default navbar-static-top navbar-inverse">
+  <div class="container">
+    <ul class="nav navbar-nav navbar-right">
+        <li class="navbar ">
+      <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="search" ng-model="searchName">
+            <div class="input-group-btn">
+                <button class="btn btn-default" id="searchBtn" type="button" ng-click="newSearchlist()"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+             </div>
+        <div class="form-group">
+              <label for="order">Select list:</label>
+              <select class="form-control" id="order" ng-model="order">
+    <option value="title">Titel</option>
+    <option value="popularity">Popularity</option>
+    <option value="release_date">Release date</option>
+    
+               </select>
+               </div> 
+    </li>
+    </ul>
+  </div>
+</nav>
+    </div>
+</header>

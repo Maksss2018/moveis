@@ -1,0 +1,48 @@
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+ <script >
+  var myApp = angular.module('myApp', []);
+  myApp.controller('FetchController',  function($scope, $http) {
+      $scope.newSearchlist=function(){
+    console.log($scope.searchName);
+    searchUrl='https://api.themoviedb.org/3/search/movie?api_key=189188917a4f773dc8aae5ca07efda43&query='+$scope.searchName;
+     $http.get(searchUrl)
+      .success(function(data) {
+      $scope.data = data;
+      console.log("succes");
+       console.log("data =="+data);
+      });
+      
+      }
+      
+      $scope.addFt=function(id){
+      console.log("$scope.ftName ===="+id);
+      url='/addtomylist';
+      var dt = '{ "moveiId": "'+id+'"}';
+      $http.post(url, dt).success(function(data) {
+      $scope.data = data;
+      console.log("succes name new mov in list is :");
+     
+      });
+      
+      }
+      
+      angular.element(document).ready(function(){
+       $http.get('https://api.themoviedb.org/3/discover/movie?api_key=189188917a4f773dc8aae5ca07efda43&sort_by=popularity.desc')
+      .success(function(data) {
+      $scope.data = data;
+      console.log("succes Load list");
+      console.log("data =="+data);
+      });
+     });
+  });
+  </script>
+<script type="text/javascript">
+    (function(){
+   $('#searchBtn').on('click',function(){
+       $('#list-container > div').fadeOut();
+   });
+   
+})(window.jquery);
+</script>

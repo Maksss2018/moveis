@@ -1,0 +1,62 @@
+  <div class="container">
+<div class="row" >
+   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"  id="list-container" >
+        <h1> List</h1>
+    <!--START angular-->
+    <div ng-repeat="mv in data.results | orderBy:order">
+   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 fadeIn" style="padding:1rem;" >
+   <div class="image-wrapper" style="overflow:hidden;">
+       <h4 class="hidden text-center" data-single-search-modal="{{mv.title}}" >{{mv.title}}</h4>
+        <img data-toggle="modal" data-target="#{{mv.id}}"  
+     src="https://image.tmdb.org/t/p/w500{{mv.poster_path}}"class="image-responsive" style="height:100%;width:auto;max-width:100%; ">
+   </div>
+   
+       
+
+
+    <div id="{{mv.id}}" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!--START Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+       
+     <ul class="list-group">
+       <li class="list-group-item-success list-group-item">
+          Original title :  {{mv.original_title}} 
+       </li>
+       <li class="list-group-item" >
+          Original language : {{mv.original_language}}  
+       </li>
+       <li class="list-group-item">
+          Release date :  {{mv.release_date}}
+       </li>
+       <li class="list-group-item">
+           Overview :  <p>{{mv.overview}}
+           </p>  
+       </li>
+        <li class="list-group-item" >
+          <span> popularity :  {{mv.popularity}}; vote count: {{mv.vote_count}} ; adult :{{mv.adult}};  </span> 
+       </li>
+       <li class="btn-group" >
+            <div class="input-group-btn">
+                <button class="btn btn-default" id="addToFt" type="button" ng-click="addFt(mv.id)">Add to my list  <i class="glyphicon glyphicon-plus"></i></button>
+            </div>
+       </li>
+     </ul>
+   </div>
+ 
+      </div>
+   </div>
+ 
+      </div>
+   
+   
+   </div>
+    </div>
+      </div>
+    </div>
+    </div>
